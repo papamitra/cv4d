@@ -4,8 +4,8 @@
 module cv4d.exception;
 
 import cv4d.opencv;
+import cv4d._internal.misc;
 import std.windows.charset;
-import std.conv;
 
 /*******************************************************************************
  * OpenCVから投げられる例外
@@ -48,15 +48,9 @@ private:
 	                               int line, void* userdata )
 	{
 		auto hEr = cast(ErrorHandler*)userdata;
-		version(Windows){
-		  auto funcName = fromMBSz(cast(immutable)func_name);
-		  auto errorMsg = fromMBSz(cast(immutable)err_msg);
-		  auto fileName = fromMBSz(cast(immutable)file_name);
-		}else{
-		  auto funcName = to!string(func_name);
-		  auto errorMsg = to!string(err_msg);
-		  auto fileName = to!string(file_name);
-		}
+		auto funcName = fromMBSz(cast(immutable)func_name);
+		auto errorMsg = fromMBSz(cast(immutable)err_msg);
+		auto fileName = fromMBSz(cast(immutable)file_name);
 		return hEr._handler(errorMsg, status, funcName, fileName, line);
 	}
 	
