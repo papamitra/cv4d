@@ -8,7 +8,7 @@ import cv4d.exception, cv4d._internal.misc;
 
 private void error(string msg, string file = __FILE__, size_t line = __LINE__) pure
 {
-	throw new CvException(msg, file, line);
+	throw new CvException(msg, file, cast(int)line);
 }
 
 
