@@ -1,0 +1,17 @@
+{
+    "name": "cv4d",
+    "workingDirectory": "lib",
+    "description": "An objective wrapper for OpenCV.",
+    "authors": ["shoo"],
+
+    "importPaths":  [
+	"source/"
+    ],
+    "configurations": [
+	{
+	    "targetType": "library",
+	    "name": "library"
+	}
+    ],
+    "targetPath": "lib"
+}
