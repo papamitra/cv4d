@@ -13,5 +13,7 @@
 	    "name": "library"
 	}
     ],
-    "targetPath": "lib"
+    "targetPath": "lib",
+    "libs": ["opencv"],
+    "lflags": ["-ltango-dmd"]
 }
